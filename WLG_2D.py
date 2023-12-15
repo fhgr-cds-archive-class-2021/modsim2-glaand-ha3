@@ -15,7 +15,7 @@ dy = height/ny  # grid size in y-direction
 c = 0.03          # thermal diffusivity
 dt = (dx**2)/(4*c)  # time step size
 t_end = 100.        # simulation length
-tolerance = 1e-5 # toleration for convergence
+tolerance = 1e-5 # tolerarance for saving vtk files
 
 uo = np.zeros((nx+2,ny+2)) # temperature at current time step
 un = np.zeros((nx+2,ny+2)) # temperature at next time step

@@ -16,10 +16,10 @@ dz = depth/nz   # grid size in z-direction
 
 
 c = 0.03          # thermal diffusivity
-dt = 0.005  # time step size
+dt = 0.005  # time step size (optimal from stability analysis not working for me)
 print(f'dt: {dt}')
 t_end = 100.        # simulation length
-tolerance = 1e-5 # toleration for convergence
+tolerance = 1e-5 # tolerance for saving vtk files
 
 uo = np.zeros((nx+2,ny+2,nz+2)) # temperature at current time step
 un = np.zeros((nx+2,ny+2,nz+2)) # temperature at next time step
@@ -101,7 +101,7 @@ y = np.linspace(0, 1, ny+2)
 X, Y = np.meshgrid(x, y)
 plt.xlabel(r'$x$')
 plt.ylabel(r'$y$')
-# get the first z-layer
+# get the z-layer in the middle of the domain
 xy_slice = un[:,:,int(nz/2)]
 plt.contourf(X, Y, np.rot90(xy_slice,3), cmap=plt.cm.plasma)
 plt.colorbar()
